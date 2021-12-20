@@ -4,9 +4,12 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import design.dao.ProxyOperator;
 import design.entity.Course;
+import design.entity.CourseWithTeacher;
 import design.entity.Faculty;
 import design.entity.Grade;
 import design.entity.Student;
+import design.entity.StudentGradeForStudent;
+import design.entity.StudentGradeForTeacher;
 import design.entity.Teacher;
 import design.factory.CourseFactory;
 import design.factory.CourseWithTeacherFactory;
@@ -51,13 +54,13 @@ public class RemoteInterfaceImp implements RemoteInterface {
                 res=new RepositoryImp<Course>().ListToObject(new CourseFactory(), sql);
             break;
             case StudentGradeForStudent:
-                res=new RepositoryImp<Course>().ListToObject(new StudentGradeFactory(), sql);
+                res=new RepositoryImp<StudentGradeForStudent>().ListToObject(new StudentGradeFactory(), sql);
             break;
             case StudentGradeForTeacher:
-                res=new RepositoryImp<Course>().ListToObject(new StudentGradeForTeacherFactory(), sql);
+                res=new RepositoryImp<StudentGradeForTeacher>().ListToObject(new StudentGradeForTeacherFactory(), sql);
             break;
             case CourseWithTeacher:
-                res=new RepositoryImp<Course>().ListToObject(new CourseWithTeacherFactory(), sql);
+                res=new RepositoryImp<CourseWithTeacher>().ListToObject(new CourseWithTeacherFactory(), sql);
             break;
             default:
                 break;

@@ -83,7 +83,7 @@ public class RepositoryImp<E> implements Repository<E> {
         Method[][] result=new Method[2][columnName.length];
         for(int i=0;i<columnName.length;++i){
             for(int j=0;j<functions.length;++j){
-                if(functions[j].getName().toLowerCase().contains(columnName[i].toLowerCase())){
+                if(functions[j].getName().toLowerCase().contains("et"+columnName[i].toLowerCase())){
                     if(functions[j].getName().contains("get")){
                         result[1][i]=functions[j];
                     }
@@ -140,9 +140,12 @@ public class RepositoryImp<E> implements Repository<E> {
         }catch(SQLException e){
             e.printStackTrace();
         }
-        // for(int i=0;i<functions[1].length;++i){
-        //     System.out.println(functions[1][i]);
-        // }
+        for(int i=0;i<ColumnName.length;++i){
+            System.out.println(ColumnName[i]);
+        }
+        for(int i=0;i<functions[1].length;++i){
+            System.out.println(functions[1][i]);
+        }
         res=new Object[list.size()][ColumnName.length];
         for(int i=0;i<res.length;++i){
             for(int j=0;j<res[i].length;++j){
@@ -153,6 +156,11 @@ public class RepositoryImp<E> implements Repository<E> {
                 }
             }
         }
+        // for(int i=0;i<res.length;++i){
+        //     for(int j=0;j<res[i].length;++j){
+        //         System.out.println(res[i][j]);
+        //     }
+        // }
         return res;
     }
 }
