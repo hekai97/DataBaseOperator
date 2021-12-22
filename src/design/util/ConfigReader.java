@@ -21,7 +21,7 @@ public class ConfigReader {
             e.printStackTrace();
         }
     }
-    public synchronized static ConfigReader getInstance(){
+    public static ConfigReader getInstance(){
         if(instance ==null){
             synchronized (ConfigReader.class){
                 if(instance ==null){

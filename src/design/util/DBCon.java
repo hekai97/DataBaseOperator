@@ -41,7 +41,7 @@ public class DBCon {
     //单例模式获取数据库连接实例
     private volatile static DBCon instance;
     private DBCon(){}
-    public synchronized static DBCon getInstance(){
+    public static DBCon getInstance(){
         if(instance==null){
             synchronized (DBCon.class){
                 if(instance==null){
